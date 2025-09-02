@@ -17,7 +17,7 @@ if (isset($_GET['id'])) { //on regarde donc si il y a un paramètre, isset perme
 }
 
 if ($action == "add") { //Rajoute des taches
-    $title = $_POST['titre'];
+    $title = $_SESSION['titre'];
     $_SESSION['task'][] = new task($title, false);
     header('Location: todo.php');
     exit();

@@ -43,10 +43,10 @@ class task {
 
     public function __toString() {
         if ($this->isDone == false) {
-            $msg = $this->title . " n'est pas finis";
+            $msg = $this->title;
             return $msg;
         } else {
-            $msg = $this->title . " est finis";
+            $msg = $this->title;
             return $msg;
         }
     }

@@ -3,4 +3,4 @@ name = "todolist-php"
 version = "1.0.0"
 
 [scripts]
-start = "php -S 0.0.0.0:8080 -t src"
+start = "php -S 0.0.0.0:8080 -t ."

@@ -1,6 +1,6 @@
 <?php
 
-require_once'assets/classes/task.php';
+require_once'src/assets/classes/task.php';
 
 session_start();
 

@@ -42,13 +42,7 @@ class task {
     }
 
     public function __toString() {
-        if ($this->isDone == false) {
-            $msg = $this->title;
-            return $msg;
-        } else {
-            $msg = $this->title;
-            return $msg;
-        }
+            return $this->title;
     }
 
 }

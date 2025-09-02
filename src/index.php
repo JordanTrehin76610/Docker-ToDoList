@@ -1,6 +1,6 @@
 <?php
 
-require_once'src/assets/classes/task.php';
+require_once'assets/classes/task.php';
 
 session_start();
 
@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if(empty($erreur)){
         $_SESSION['titre'] = $_POST['titre'];
-        header("Location: src/action.php?action=add");
+        header("Location: action.php?action=add");
     }
 }
 
@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>To-Do List</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="src/assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 
@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
         <div class="my-5 text-center">
-            <a href="src/todo.php"><button class="btn btn-primary">Voir la To-Do List</button></a>
+            <a href="todo.php"><button class="btn btn-primary">Voir la To-Do List</button></a>
         </div>
     </div>
 

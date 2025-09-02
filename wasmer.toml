@@ -1,15 +1,10 @@
 [package]
 name = "todolist-php"
 version = "1.0.0"
-description = "A simple PHP ToDoList app deployable with Wasmer"
 
 [scripts]
-# Démarre le serveur PHP avec la racine du repo comme dossier public
 start = "php -S 0.0.0.0:8080 -t ."
 
 [wasmer]
-# Point d'entrée principal
 entry = "index.php"
-
-# Fichiers/dossiers à inclure dans le déploiement
 include = ["index.php", "src/"]

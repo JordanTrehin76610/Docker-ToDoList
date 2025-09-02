@@ -26,7 +26,7 @@ if ($action == "add") { //Rajoute des taches
     header('Location: todo.php');
     exit();
 } else if ($action == "delete" && isset($_GET['id'])) { //Supprime des taches
-    array_splice($_SESSION['task'], $id, 1);
+    unset($_SESSION['task'][$id]);
     header('Location: todo.php');
     exit();
 }

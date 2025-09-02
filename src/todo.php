@@ -39,7 +39,7 @@ if(!isset($_SESSION['task'])) {
         </div>
 
         <div class="text-center">
-            <a href="../index.php"><button class="btn btn-primary mb-3">Ajouter une tâche</button></a>
+            <a href="index.php"><button class="btn btn-primary mb-3">Ajouter une tâche</button></a>
         </div>
 
         <hr class="w-75 mx-auto mb-3">

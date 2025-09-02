@@ -25,6 +25,14 @@ if(!isset($_SESSION['task'])) {
 
 <body class="corp">
 
+    <div id="web">
+
+        <p class="text-center fs-1 TitreWeb">RIP BOZO IL FAUT ETRE SUR MOBILE</p>
+
+    </div>
+
+    <div id="mobile">
+
         <h1 class="text-center my-5 Titre">La To-Do List</h1>
 
 
@@ -47,7 +55,27 @@ if(!isset($_SESSION['task'])) {
         <div class="my-5 text-center">
             <a href="todo.php"><button class="btn btn-primary">Voir la To-Do List</button></a>
         </div>
+    </div>
 
+    <style>
+    #web {
+        display: block;
+    }
+
+    #mobile {
+        display: none;
+    }
+
+    @media screen and (max-width: 500px) {
+        #web {
+            display: none;
+        }
+
+        #mobile {
+            display: block;
+        }
+    }
+    </style>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">

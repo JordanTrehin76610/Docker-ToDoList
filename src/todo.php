@@ -26,33 +26,69 @@ if(!isset($_SESSION['task'])) {
 
 <body class="bg">
 
-    <div class="etiquette my-3">
-        <h1 class="text-center pt-2">Ma To-Do list</h1>
+    <div id="web">
+
+        <p class="text-center fs-1 TitreWeb">RIP BOZO IL FAUT ETRE SUR MOBILE</p>
+
     </div>
 
-    <div class="text-center">
-        <a href="index.php"><button class="btn btn-primary mb-5">Ajouter une tâche</button></a>
+    <div id="mobile">
+
+        <div class="etiquette my-3">
+            <h1 class="text-center pt-2">Ma To-Do list</h1>
+        </div>
+
+        <div class="text-center">
+            <a href="index.php"><button class="btn btn-primary mb-3">Ajouter une tâche</button></a>
+        </div>
+
+        <hr class="w-75 mx-auto mb-3">
+
+        <?php if (!isset($_SESSION['task']) || empty($_SESSION['task'])) { ?>
+        <p class="text-center">Aucune tâche de disponible ;)</p>
+        <?php } else {
+        $tache = $_SESSION['task']; ?>
+        <?php foreach($tache as $index => $task) { ?>
+        <div class="justify-content-end d-flex postIt mx-auto w-75 px-1 py-2">
+            <?php if ($task->getIsDone() == false) { ?>
+            <p class="pt-2">-<?= $task->__toString(); ?></p>
+            <?php $delete = "action.php?action=delete&id=" . $index;?>
+            <?php $change = "action.php?action=toggle&id=" . $index;?>
+            <a href="<?= $change ?>"><button class="btn btn-success mx-1"><i class="bi bi-check"></i></button></a>
+            <a href="<?= $delete ?>"><button class="btn btn-dark mx-1"><i class="bi bi-trash-fill"></i></button></a>
+            <?php } else { ?>
+            <p class="pt-2 finis">-<?= $task->__toString(); ?></p>
+            <?php $delete = "action.php?action=delete&id=" . $index;?>
+            <?php $change = "action.php?action=toggle&id=" . $index;?>
+            <a href="<?= $change ?>"><button class="btn btn-danger mx-1"><i class="bi bi-x-lg"></i></button></a>
+            <a href="<?= $delete ?>"><button class="btn btn-dark mx-1"><i class="bi bi-trash-fill"></i></button></a>
+            <?php } ?>
+        </div>
+        <?php }} ?>
+
     </div>
 
-    <?php $tache = $_SESSION['task'];
-    foreach($tache as $index => $task) { ?>
-    <div class="justify-content-end d-flex postIt mx-auto w-75 px-1 py-2">
-        <?php if ($task->getIsDone() == false) { ?>
-        <p class="pt-2">-<?= $task->__toString(); ?></p>
-        <?php $delete = "action.php?action=delete&id=" . $index;?>
-        <?php $change = "action.php?action=toggle&id=" . $index;?>
-        <a href="<?= $change ?>"><button class="btn btn-success mx-1"><i class="bi bi-check"></i></button></a>
-        <a href="<?= $delete ?>"><button class="btn btn-dark mx-1"><i class="bi bi-trash-fill"></i></button></a>
-        <?php } else { ?>
-        <p class="pt-2 finis">-<?= $task->__toString(); ?></p>
-        <?php $delete = "action.php?action=delete&id=" . $index;?>
-        <?php $change = "action.php?action=toggle&id=" . $index;?>
-        <a href="<?= $change ?>"><button class="btn btn-danger mx-1"><i class="bi bi-x-lg"></i></button></a>
-        <a href="<?= $delete ?>"><button class="btn btn-dark mx-1"><i class="bi bi-trash-fill"></i></button></a>
-        <?php } ?>
-    </div>
-    <?php } ?>
 
+
+    <style>
+    #web {
+        display: block;
+    }
+
+    #mobile {
+        display: none;
+    }
+
+    @media screen and (max-width: 500px) {
+        #web {
+            display: none;
+        }
+
+        #mobile {
+            display: block;
+        }
+    }
+    </style>
 </body>
 
 
